@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+name: sei-dictionary
+version: 1.0.0
+runner:
+  node:
+    name: "@subql/node-cosmos"
+    version: "*"
+    options:
+      unfinalizedBlocks: false
+      historical: false
+  query:
+    name: "@subql/query"
+    version: "*"
+description: A SubQuery project provide dictionary data & service for the Cosmos - Archway
+schema:
+  file: ./schema.graphql
+network:
+  chainId: archway-1
+  endpoint:
+    [
+      "https://rpc.mainnet.archway.io:443",
+    ]
+dataSources:
+  - kind: cosmos/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleEvent
+          kind: cosmos/EventHandler
+        - handler: handleMessage
+          kind: cosmos/MessageHandler
