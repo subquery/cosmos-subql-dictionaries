@@ -16,7 +16,7 @@ schema:
   file: ./schema.graphql
 
 parent:
-  reference: ___UNKNOWN_CID___
+  reference: UNKNOWN_CID_YOUR_NOT_UPDATE_MAINNET
   block: 13225593
 
 network:
